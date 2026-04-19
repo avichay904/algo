@@ -1,0 +1,43 @@
+// ===== Maayan's warm theme =====
+// Surfaces (cream tones)
+$theme-dark:    #F5ECE2;   // deeper cream panel
+$theme-normal:  #FBF3EA;   // main background
+$theme-light:   #FFFBF5;   // raised surface / cards
+
+// Content / text
+$color-font:           #4A3A3A;              // warm near-black
+$color-font-muted:     #8A7373;              // muted text
+$color-shadow:         rgba(122, 90, 90, .18);
+$color-overlay:        rgba(212, 165, 184, .12);
+
+// Semantic accents
+$color-alert:          #E89B6C;   // peach (warning)
+$color-selected:       #C48BA6;   // dusty rose (selection)
+$color-patched:        #D36A8B;   // deeper rose (modified/highlight)
+$color-highlight:      #B8A3D9;   // lavender (hover/focus)
+$color-active:         #8FB89A;   // soft sage (running/success)
+
+// Brand aliases
+$brand-primary:   #C48BA6;   // dusty rose
+$brand-secondary: #F5B99A;   // peach
+$brand-accent:    #B8A3D9;   // lavender
+$brand-cream:     #FBF3EA;
+
+:export {
+  themeDark: $theme-dark;
+  themeNormal: $theme-normal;
+  themeLight: $theme-light;
+  colorFont: $color-font;
+  colorFontMuted: $color-font-muted;
+  colorShadow: $color-shadow;
+  colorOverlay: $color-overlay;
+  colorAlert: $color-alert;
+  colorSelected: $color-selected;
+  colorPatched: $color-patched;
+  colorHighlight: $color-highlight;
+  colorActive: $color-active;
+  brandPrimary: $brand-primary;
+  brandSecondary: $brand-secondary;
+  brandAccent: $brand-accent;
+  brandCream: $brand-cream;
+}

@@ -1,0 +1,203 @@
+@import "~common/stylesheet/index";
+
+.markdown {
+  flex: 1;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow-y: auto;
+
+  .content {
+    padding: 32px 40px;
+    font-size: $font-size-large;
+    line-height: 1.75;
+    direction: rtl;
+    text-align: right;
+
+    // ===== Paragraphs & spacing =====
+    p {
+      margin: 0 0 1em 0;
+      text-align: start;
+      line-height: 1.85;
+    }
+
+    // ===== Headings =====
+    h1, h2, h3, h4, h5, h6 {
+      text-align: start;
+      line-height: 1.5;
+      margin: 1.8em 0 0.8em 0;
+      unicode-bidi: plaintext; // correctly handle mixed Hebrew+English titles
+      font-weight: 700;
+    }
+
+    h1 {
+      font-size: 2em;
+      border-bottom: 2px solid $color-selected;
+      padding-bottom: 0.3em;
+      margin-top: 0.5em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      color: $brand-primary;
+      border-bottom: 1px solid rgba(196, 139, 166, .3);
+      padding-bottom: 0.25em;
+      margin-top: 2.2em;
+    }
+
+    h3 {
+      font-size: 1.25em;
+      color: $color-font;
+    }
+
+    // ===== Inline code (appears inside Hebrew paragraphs) =====
+    // unicode-bidi: isolate prevents surrounding Hebrew from flipping the code's internal order
+    :not(pre) > code {
+      direction: ltr;
+      unicode-bidi: isolate;
+      display: inline-block;
+      font-family: $font-family-monospace;
+      font-size: 0.92em;
+      background: rgba(196, 139, 166, .12);
+      color: $color-patched;
+      padding: 0.15em 0.45em;
+      border-radius: 4px;
+      vertical-align: baseline;
+      white-space: nowrap;
+    }
+
+    // ===== Code blocks =====
+    pre {
+      direction: ltr;
+      text-align: left;
+      unicode-bidi: isolate;
+      background: $theme-dark;
+      border: 1px solid rgba(196, 139, 166, .25);
+      border-inline-start: 4px solid $brand-primary;
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 1.2em 0;
+      overflow-x: auto;
+      line-height: 1.55;
+
+      code {
+        direction: ltr;
+        font-family: $font-family-monospace;
+        font-size: 0.92em;
+        background: transparent;
+        color: $color-font;
+        padding: 0;
+        white-space: pre;
+        display: block;
+        unicode-bidi: embed;
+      }
+    }
+
+    // ===== Lists =====
+    ul, ol {
+      padding-inline-start: 1.8em;
+      padding-inline-end: 0;
+      margin: 0.5em 0 1em 0;
+      text-align: start;
+    }
+
+    li {
+      margin-bottom: 0.35em;
+      text-align: start;
+
+      > p {
+        margin-bottom: 0.35em;
+      }
+
+      // Nested lists stay tight
+      > ul, > ol {
+        margin: 0.2em 0;
+      }
+    }
+
+    // RTL bullet/number alignment
+    ul {
+      list-style-position: outside;
+      list-style-type: disc;
+    }
+
+    ol {
+      list-style-position: outside;
+      list-style-type: decimal;
+    }
+
+    // ===== Blockquotes =====
+    blockquote {
+      margin: 1em 0;
+      padding: 0.5em 1.2em;
+      border-inline-start: 4px solid $brand-accent;
+      background: rgba(184, 163, 217, .08);
+      color: $color-font-muted;
+      font-style: italic;
+      text-align: start;
+    }
+
+    // ===== Links =====
+    a {
+      text-decoration: underline;
+      color: $brand-primary;
+      unicode-bidi: isolate;
+
+      &:hover {
+        color: $color-patched;
+      }
+    }
+
+    // ===== Tables =====
+    table {
+      border-collapse: collapse;
+      margin: 1em 0;
+      direction: rtl;
+      text-align: start;
+
+      th, td {
+        padding: 0.5em 0.9em;
+        border: 1px solid rgba(196, 139, 166, .3);
+        text-align: start;
+      }
+
+      th {
+        background: rgba(196, 139, 166, .1);
+        font-weight: 700;
+      }
+    }
+
+    // ===== Horizontal rules =====
+    hr {
+      border: none;
+      border-top: 1px solid rgba(196, 139, 166, .3);
+      margin: 2em 0;
+    }
+
+    // ===== Strong & emphasis =====
+    strong {
+      color: $brand-primary;
+      font-weight: 700;
+    }
+
+    em {
+      color: $color-font-muted;
+    }
+
+    // ===== Images =====
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1em auto;
+      border-radius: 6px;
+    }
+
+    // ===== Mixed content helpers =====
+    // When a paragraph starts with an English term + Hebrew text,
+    // plaintext direction keeps each run in its natural reading order.
+    p, li, td, th, blockquote {
+      unicode-bidi: plaintext;
+    }
+  }
+}

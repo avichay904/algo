@@ -1,0 +1,10 @@
+// Shared brand tokens (import via @import "brand"; from stylesheet index)
+$radius-sm: 6px;
+$radius-md: 12px;
+$radius-lg: 20px;
+
+$shadow-soft: 0 4px 20px rgba(196, 139, 166, .18);
+$shadow-lift: 0 6px 28px rgba(196, 139, 166, .26);
+$shadow-inset: inset 0 1px 0 rgba(255, 255, 255, .5);
+
+$transition-smooth: all 180ms cubic-bezier(.2, .8, .2, 1);
